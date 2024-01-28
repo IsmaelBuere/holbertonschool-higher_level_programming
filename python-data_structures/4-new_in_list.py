@@ -4,5 +4,4 @@ def new_in_list(my_list, idx, element):
         return my_list.copy()
 
     new_list = my_list[:idx] + [element] + my_list[idx + 1:]
-    
     return new_list
