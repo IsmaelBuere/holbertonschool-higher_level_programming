@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-def roman_to_int(s):
-    roman = {
-        'I': 1, 'V': 5, 'X': 10, 'L': 50,
-        'C': 100, 'D': 500, 'M': 1000
-        }
-    last, total = 0, 0
-    for i in s[::-1]:
-        if last == 0:
-            last = roman[i]
-        if roman[i] < last:
-            total -= 2*roman[i]
-        total += roman[i]
-        last = roman[i]
-    return total
+#!/usr/bin/python3
+def roman_to_int(roman_string):
+    if not isinstance(roman_string, str):
+        return 0
+
+    roman_numerals = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+    values = [1, 5, 10, 50, 100, 500, 1000]
+    integer = 0
+    previous_value = 0
+
+    for numeral in reversed(roman_string):
+        value = values[roman_numerals.index(numeral)]
+
+        if value < previous_value:
+            integer -= value
+        else:
+            integer += value
+            previous_value = value
+
+    return integer
