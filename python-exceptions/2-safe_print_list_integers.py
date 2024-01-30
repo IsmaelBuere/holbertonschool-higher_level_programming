@@ -7,7 +7,7 @@ for i in range(x):
         print("{:d}".format(my_list[i]), end="")
         count_integers += 1
     except (ValueError, TypeError):
-        continue
+        pass
 
     print()
     return count_integers
