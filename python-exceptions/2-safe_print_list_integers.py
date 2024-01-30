@@ -9,5 +9,5 @@ for i in range(x):
     except (ValueError, TypeError):
         pass
 
-    print()
-    return count
+print()
+return count
