@@ -1,5 +1,14 @@
 #!/usr/bin/python3
+"""
+This is the module docstring. This module contains a definition of a Square.
+"""
+
+
 class Square:
+    """
+    Square class for representing a square object.
+    """
+
     def __init__(self, size=0):
         self.__size = 0
         self.size = size
