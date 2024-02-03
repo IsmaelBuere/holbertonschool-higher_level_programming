@@ -1,0 +1,70 @@
+=====================
+Using ``add_integer``
+=====================
+
+First we import ``add_integer`` from the ``0-add_integer`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+Numbers
+=======
+
+>>> add_integer(2, 3)
+5
+
+add_integer(2,)
+100
+
+>>> add_integer(2, 0)
+2
+
+>>> add_integer(-2.3, 4.5)
+2
+
+>>> add_integer(-0.3, 4)
+4
+
+Non-Numbers
+===========
+
+>>> add_integer('a', 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer('2', '5')
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(4, "hola")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(None, 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(2, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer((1, 2))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
