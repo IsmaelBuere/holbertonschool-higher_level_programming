@@ -1,0 +1,29 @@
+    """
+    Prints a sentence in the format "My name is <first name> <last name>".
+
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+    >>> say_my_name("John")
+    My name is John 
+
+    >>> say_my_name(123, "Doe")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("John", 123)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    Parameters:
+    first_name (str): The first name to print.
+    last_name (str): The last name to print. If not provided, defaults to an empty string.
+
+    Raises:
+    TypeError: If either first_name or last_name are not strings.
+
+    Returns:
+    None
+    """
