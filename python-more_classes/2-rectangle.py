@@ -3,11 +3,11 @@
 This module contains a definition of a Rectangule.
 """
 
+
 class Rectangle:
     """
     Class representing a rectangle.
     """
-
     def __init__(self, width=0, height=0):
         """
         Initializes a rectangle with a given width and height.
