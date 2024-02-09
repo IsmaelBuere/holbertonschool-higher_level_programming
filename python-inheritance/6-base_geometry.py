@@ -8,4 +8,5 @@ class BaseGeometry:
     """
     A base class for geometric operations.
     """
-    pass
+    def area(self):
+        raise Exception("area() is not implemented")
