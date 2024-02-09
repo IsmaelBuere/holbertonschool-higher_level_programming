@@ -1,4 +1,3 @@
-        """
         Prints the list elements sorted in ascending order.
 
         Doctests:
@@ -17,4 +16,3 @@
         >>> my_list = MyList(['e', 'c', 'a', 'd', 'b'])
         >>> my_list.print_sorted()
         ['a', 'b', 'c', 'd', 'e']
-        """
