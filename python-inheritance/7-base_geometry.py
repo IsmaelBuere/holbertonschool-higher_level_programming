@@ -7,19 +7,11 @@ Create a class BaseGeometry.
 class BaseGeometry:
     """
     A base class for geometric operations.
-
-    This class serves as a base for implementing geometric operations.
     """
     def area(self):
-        """
-        Method that defines the area of a geomtric shape
-        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """
-        Method that recieves the value property
-        """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
