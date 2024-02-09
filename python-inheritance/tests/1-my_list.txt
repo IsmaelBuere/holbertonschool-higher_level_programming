@@ -1,18 +1,39 @@
-        Prints the list elements sorted in ascending order.
+>>> ml = MyList([4, 2, 7, 1, 5])
+>>> ml.print_sorted()
+[1, 2, 4, 5, 7]
 
-        Doctests:
-        >>> my_list = MyList([3, 2, 1, 5, 4])
-        >>> my_list.print_sorted()
-        [1, 2, 3, 4, 5]
-        >>> my_list = MyList(['c', 'a', 'b'])
-        >>> my_list.print_sorted()
-        ['a', 'b', 'c']
-        >>> my_list = MyList([])
-        >>> my_list.print_sorted()
-        []
-        >>> my_list = MyList([5, 3, 4, 1, 2])
-        >>> my_list.print_sorted()
-        [1, 2, 3, 4, 5]
-        >>> my_list = MyList(['e', 'c', 'a', 'd', 'b'])
-        >>> my_list.print_sorted()
-        ['a', 'b', 'c', 'd', 'e']
+>>> ml2 = MyList([10, -3, 8, 0])
+>>> ml2.print_sorted()
+[-3, 0, 8, 10]
+
+>>> ml3 = MyList([])
+>>> ml3.print_sorted()
+[]
+
+>>> ml4 = MyList([1])
+>>> ml4.print_sorted()
+[1]
+
+>>> ml5 = MyList([3, 2, 1])
+>>> ml5.print_sorted()
+[1, 2, 3]
+
+>>> ml6 = MyList(["apple", "banana", "cherry"])
+>>> ml6.print_sorted()
+['apple', 'banana', 'cherry']
+
+>>> ml7 = MyList([1, "two", 3.0])
+>>> ml7.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+>>> ml8 = MyList([1, 2, "three"])
+>>> ml8.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'int' and 'str'
+
+>>> ml9 = MyList([2, 2, 2])
+>>> ml9.print_sorted()
+[2, 2, 2]
