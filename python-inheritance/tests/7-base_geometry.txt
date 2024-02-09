@@ -1,4 +1,4 @@
-Importing class from the module:
+""" Importing class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
@@ -113,4 +113,4 @@ Passing None to method
     >>> bg.integer_validator("age", None)
     Traceback (most recent call last):
               ...
-    TypeError: age must be an integer
+    TypeError: age must be an integer """
