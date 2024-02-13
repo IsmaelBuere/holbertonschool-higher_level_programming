@@ -53,3 +53,15 @@ class Base:
                 [obj.to_dictionary() for obj in list_objs]
             )
             file.write(json_str)
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of instances from a JSON file."""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_str = file.read()
+                list_dicts = cls.from_json_string(json_str)
+                return [cls.create(**dictionary) for dictionary in list_dicts]
+        except FileNotFoundError:
+            return []
