@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Defines a Square class."""
+"""
+Defines a Square class.
+"""
 from models.rectangle import Rectangle
 
 
@@ -23,35 +25,17 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    @property
-    def width(self):
-        """Get the width of the square."""
-        return self.__width
-
-    @width.setter
-    def width(self, value):
-        """Set the width of the square."""
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        elif value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-        self.__height = value
-
-    @property
-    def height(self):
-        """Get the height of the square."""
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """Set the height of the square."""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        elif value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
-        self.__width = value
+    def update(self, *args, **kwargs):
+        """
+        Update the square's attributes.
+        """
+        if args:
+            attrs = ['id', 'size', 'x', 'y']
+            for attr, value in zip(attrs, args):
+                setattr(self, attr, value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """Return the string representation of the square."""
