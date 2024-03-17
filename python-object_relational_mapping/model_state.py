@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""
+This module contains a Base class.
+"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
