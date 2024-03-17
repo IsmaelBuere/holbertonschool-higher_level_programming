@@ -3,8 +3,11 @@
 This module contains a Base class.
 """
 
+
 from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class City(Base):
