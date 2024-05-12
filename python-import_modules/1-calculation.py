@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    from calculator_1 import add
 
     a = 10
     b = 5
@@ -16,5 +15,6 @@ if __name__ == "__main__":
     for i in range(count):
         print("{}: {}".format(i + 1, sys.argv[i + 1]))
 
-    print("Addition of a and b: ", add(a, b))
+    result = a + b
+    print("Result of adding {} and {}: {}".format(a, b, result))
 
