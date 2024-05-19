@@ -2,6 +2,8 @@
 '''
 Class Square
 '''
+
+
 class Square:
     '''
     Does square
