@@ -1,0 +1,31 @@
+"""
+import unittest
+
+class TestMatrixDivided(unittest.TestCase):
+    def test_matrix_divided_with_integers(self):
+        matrix = [[2, 6], [4, 8]]
+        div = 2
+        expected = [[1.0, 3.0], [2.0, 4.0]]
+        self.assertEqual(matrix_divided(matrix, div), expected)
+
+    def test_matrix_divided_with_floats(self):
+        matrix = [[1.5, 6.75], [3.0, 8.5]]
+        div = 1.5
+        expected = [[1.0, 4.5], [2.0, 5.67]]
+        self.assertEqual(matrix_divided(matrix, div), expected)
+
+    def test_invalid_matrix(self):
+        with self.assertRaises(TypeError):
+            matrix_divided("not a matrix", 2)
+        with self.assertRaises(TypeError):
+            matrix_divided([[1, 2], [3, 4, 5]], 2)
+
+    def test_invalid_divisor(self):
+        with self.assertRaises(TypeError):
+            matrix_divided([[1, 2], [3, 4]], "not a number")
+        with self.assertRaises(ZeroDivisionError):
+            matrix_divided([[1, 2], [3, 4]], 0)
+
+if __name__ == '__main__':
+    unittest.main()
+"""
