@@ -5,7 +5,7 @@ This function print the names of a persons. First name & last name
 must be a string.
 
 exemple:
->>> say_my_name("Pepe", "mukika")
+>>> say_my_name("John", "Smith")
 My name is John Smith
 
 errors:
@@ -14,7 +14,7 @@ Traceback (most recent call last):
 ...
 TypeError: first_name must be a string
 
->>> say_my_name("Mukika", 28)
+>>> say_my_name("Smith", 28)
 Traceback (most recent call last):
 ...
 TypeError: last_name must be a string
