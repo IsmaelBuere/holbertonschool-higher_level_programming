@@ -2,6 +2,8 @@
 """
 Write a function that adds 2 integers
 """
+
+
 def add_integer(a, b=98):
     """
     Adds two numbers who should are integers.
@@ -16,4 +18,3 @@ def add_integer(a, b=98):
     b = int(b)
 
     return a + b
-
