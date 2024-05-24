@@ -17,10 +17,8 @@ Usage
 
 ::
 
-    >>> text_indentation("This is a test: to see if it works. Hopefully, it does?")
-    This is a test:
-    to see if it works.
-    Hopefully, it does?
+    >>> text_indentation("Holberton School")
+    Holberton School
 
 The function also removes any extra spaces following these characters.
 
