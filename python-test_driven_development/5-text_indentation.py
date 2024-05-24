@@ -10,10 +10,8 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    
     result = ""
     i = 0
-    
     while i < len(text):
         result += text[i]
         if text[i] in '.?:':
@@ -23,7 +21,8 @@ def text_indentation(text):
                 i += 1
             continue
         i += 1
-    
     print(result.strip())
+
+
 text = "Hello. How are you? I am fine: thank you."
 text_indentation(text)
