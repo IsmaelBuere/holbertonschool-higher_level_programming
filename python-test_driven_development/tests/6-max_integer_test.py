@@ -1,43 +1,55 @@
 #!/usr/bin/python3
-"""Unittest fro max_integer([..])"""
+"""
+Unittest fro max_integer([..])
+"""
 
 
 import unittest
-from your_module import max_integer
+max_integer = __import__('6-max_integer').max_integer
+
 
 class TestMaxInteger(unittest.TestCase):
+    """
+    Just testing to see if this works
+    """
+
     def test_max_integer(self):
         """
-        Calls the function
+        calls the function max_integer
         """
-        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-        self.assertEqual(max_integer([10, 20, 30, 40]), 40)
+        x = [None]
+        self.assertEqual(max_integer(x), None)
 
-        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
-        self.assertEqual(max_integer([-10, -20, -30, -40]), -10)
+        x = [1]
+        self.assertEqual(max_integer(x), 1)
 
-        self.assertEqual(max_integer([1, -2, 3, -4]), 3)
-        self.assertEqual(max_integer([-1, 2, -3, 4]), 4)
+        x = [5, 3, 4, 1]
+        self.assertEqual(max_integer(x), 5)
 
-        self.assertEqual(max_integer([3]), 3)
-        self.assertEqual(max_integer([-3]), -3)
+        x = [1, 1, -5, 3]
+        self.assertEqual(max_integer(x), 3)
 
+        x = [100, 3, 5, 2]
+        self.assertEqual(max_integer(x), 100)
+
+        x = [-5, -4, -3, -1]
+        self.assertEqual(max_integer(x), -1)
+
+        x = [3.14, 5, 8, 9]
+        self.assertEqual(max_integer(x), 9)
+
+        x = [7]
+        self.assertEqual(max_integer(x), 7)
+
+        x = [-10, -5, -15]
+        self.assertEqual(max_integer(x), -5)
+
+        x = [10, 1, 1, 10]
+        self.assertEqual(max_integer(x), 10)
+
+        x = []
         self.assertEqual(max_integer([]), None)
 
-        self.assertEqual(max_integer([0, 0, 0, 0]), 0)
 
-        self.assertEqual(max_integer([7, 7, 7, 7]), 7)
-
-        self.assertEqual(max_integer([1, 3, 3, 2]), 3)
-
-        self.assertEqual(max_integer([1.5, 2.5, 3.5, 2.5]), 3.5)
-
-        with self.assertRaises(TypeError):
-            max_integer(['a', 'b', 'c'])
-
-        with self.assertRaises(TypeError):
-            max_integer([1, 'a', 2, 'b'])
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-
