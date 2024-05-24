@@ -7,6 +7,9 @@ from your_module import max_integer
 
 class TestMaxInteger(unittest.TestCase):
     def test_max_integer(self):
+        """
+        Calls the function
+        """
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
         self.assertEqual(max_integer([10, 20, 30, 40]), 40)
 
