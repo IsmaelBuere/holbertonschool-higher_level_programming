@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 """
-Write a class MyList that inherits from list
+This module provides utilities for inspecting Python objects.
 """
 
 
 class MyList(list):
-        """
-        Prints the list in ascending order.
-        """
+    """
+    A subclass of list
+    """
     def print_sorted(self):
-        sorted_list = sorted(self)
-        print(sorted_list)
+        print(sorted(self))
