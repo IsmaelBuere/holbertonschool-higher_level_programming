@@ -5,14 +5,10 @@ Create an abstract classes
 
 
 from abc import ABC, abstractmethod
-import math
+from math import pi
 
 
 class Shape(ABC):
-    """
-    An abstract base class named Shape.
-    """
-
     @abstractmethod
     def area(self):
         pass
@@ -24,37 +20,33 @@ class Shape(ABC):
 
 class Circle(Shape):
     """
-    A class named Circle that inherits from Shape.
+    Circle class inheriting from Shape.
     """
-
     def __init__(self, radius):
-        if radius <= 0:
-            raise ValueError("Radius must be a positive number")
-        self.__radius = radius
+        self.radius = radius
 
     def area(self):
-        return math.pi * (self.__radius ** 2)
+        return pi * self.radius ** 2
 
     def perimeter(self):
-        return 2 * math.pi * self.__radius
+        return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
     """
-    A class named Rectangle that inherits from Shape.
+    Rectangle class inheriting from Shape.
     """
-
     def __init__(self, width, height):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     def area(self):
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    print(f"Area: {shape.area():.2f}")
+    print(f"Perimeter: {shape.perimeter():.2f}")
