@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+Write a function that creates an Object
 """
 def load_from_json_file(filename):
     """
