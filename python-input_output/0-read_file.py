@@ -8,8 +8,7 @@ def read_file(filename=""):
     """
     Try to open a file
     """
-    try:
-        with open(filename, "r", encoding="utf-8") as file:
-            print(file.read())
-    except:
-        pass
+    with open(filename, 'r', encoding="utf-8") as fic:
+        content = fic.read()
+        for f in content:
+            print("{}".format(f), end="")
