@@ -2,11 +2,9 @@
 
 import http.server
 import json
-import socketserver
+from https.server import HTTPServer, BaseHTTPRequestHandler
 
-PORT = 8000
-
-class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/':
@@ -18,29 +16,37 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            data = {
+                    "name": "John",
+                    "age": 30,
+                    "city": "New York"
+                    }
+            self.wfile.write(json.dumps(data).encode())
         elif self.path == '/status':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = {"status": "OK"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            status = {"status": "OK"}
+            self.wfile.write(json.dumps(status).encode('utf-8'))
         elif self.path == '/info':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = {"version": "1.0", "description": "A simple API built with http.server"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            info = {
+                    "version": "1.0",
+                    "description": "A simple API built with http.server"
+                    }
+            self.wfile.write(json.dumps(info).encode)
         else:
             self.send_response(404)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            self.wfile.write(b"404 Not Found")
 
-Handler = SimpleHTTPRequestHandler
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print(f"Serving on port {PORT}")
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler):
+    server_address = ('', 8000)
+    httpd = server_class(server_address, handler_class)
     httpd.serve_forever()
+
+if __name__ == "__main__":
+    run()
