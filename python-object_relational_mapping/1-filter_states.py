@@ -33,7 +33,6 @@ def main():
 
     for state in states:
         print(state)
-
     cursor.close()
     db.close()
 
