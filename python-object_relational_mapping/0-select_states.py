@@ -2,35 +2,34 @@
 """
 that lists all states from the database
 """
-
-
+import sys
 import MySQLdb
 
-
-def get_states(username, password, database):
+def main():
     """
     Connects to the MySQL
     """
-    try:
-        db_connection = MySQLdb.connect(host='localhost', user=username, passwd=password, db=database)
-    except MySQLdb.Error as e:
-        print(f"Error connecting to the database: {e}")
+    if len(sys.argv) != 4:
+        print("Usage: ./0-select_states.py <mysql username> <mysql password> <database name>")
         return
 
-    cursor = db_connection.cursor()
+    username = sys.argv[1]
+    password = sys.argv[2]
+    dbname = sys.argv[3]
 
-    query = "SELECT id, name FROM states ORDER BY id"
-    cursor.execute(query)
+    db = MySQLdb.connect(host="localhost", user=username, passwd=password, db=dbname, port=3306)
 
-    for row in cursor.fetchall():
-        state_id, state_name = row
-        print(f"({state_id}, '{state_name}')")
+    cursor = db.cursor()
 
-    db_connection.close()
+    cursor.execute("SELECT id, name FROM states ORDER BY id ASC")
+
+    states = cursor.fetchall()
+
+    for state in states:
+        print(state)
+
+    cursor.close()
+    db.close()
 
 if __name__ == "__main__":
-    username = input("Enter MySQL username: ")
-    password = input("Enter MySQL password: ")
-    database = input("Enter database name: ")
-
-    get_states(username, password, database)
+    main()
