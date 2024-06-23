@@ -5,6 +5,7 @@ that lists all states from the database
 import sys
 import MySQLdb
 
+
 def main():
     """
     Connects to the MySQL
