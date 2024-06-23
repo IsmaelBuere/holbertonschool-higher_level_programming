@@ -1,44 +1,29 @@
 #!/usr/bin/python3
 """
-that takes in an argument and displays all values in the states
+script that takes in an argument and displays all values in the states
 """
-import sys
 import MySQLdb
-
-
-def main():
-    """
-    Connects to the MySQL server and lists states matching the argument.
-    """
-    if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py <mysql username> <mysql password>"
-              " <database name> <state name searched>")
-        return
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    dbname = sys.argv[3]
-    state_name = sys.argv[4]
-
-    db = MySQLdb.connect(
-        host="localhost", user=username, passwd=password, db=dbname,
-        port=3306
-    )
-
-    cursor = db.cursor()
-
-    query = ("SELECT id, name FROM states WHERE name = '{}' ORDER BY id ASC"
-             .format(state_name))
-    cursor.execute(query)
-
-    states = cursor.fetchall()
-
-    for state in states:
-        print(state)
-
-    cursor.close()
-    db.close()
-
+import sys
 
 if __name__ == "__main__":
-    main()
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+    )
+
+    cur = db.cursor()
+    state = sys.argv[4]
+
+    query = ("SELECT * FROM states WHERE BINARY name = '{}' "
+             "ORDER BY states.id ASC").format(state)
+
+    cur.execute(query)
+
+    for row in cur.fetchall():
+        print(row)
+
+    cur.close()
+    db.close()
