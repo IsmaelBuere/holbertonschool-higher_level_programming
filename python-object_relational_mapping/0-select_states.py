@@ -6,7 +6,11 @@ that lists all states from the database
 
 import MySQLdb
 
+
 def get_states(username, password, database):
+    """
+    Connects to the MySQL
+    """
     try:
         db_connection = MySQLdb.connect(host='localhost', user=username, passwd=password, db=database)
     except MySQLdb.Error as e:
