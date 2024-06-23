@@ -6,34 +6,29 @@ import sys
 import MySQLdb
 
 
-def main():
-    """
-    Connects to the MySQL server and lists all states starting with 'N'.
-    """
-    if len(sys.argv) != 4:
-        print("Usage: ./1-filter_states.py <mysql username> <mysql password> "
-              "<database name>")
-        return
+import MySQLdb
+import sys
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    dbname = sys.argv[3]
-
+if __name__ == "__main__":
     db = MySQLdb.connect(
-        host="localhost", user=username, passwd=password, db=dbname,
-        port=3306
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
 
-    cursor = db.cursor()
+    cur = db.cursor()
 
-    query = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
-    cursor.execute(query)
+    query = ("SELECT * FROM states WHERE name LIKE BINARY 'N%' "
+             "ORDER BY states.id ASC")
 
-    states = cursor.fetchall()
+    cur.execute(query)
 
-    for state in states:
-        print(state)
-    cursor.close()
+    for row in cur.fetchall():
+        print(row)
+
+    cur.close()
     db.close()
 
 
