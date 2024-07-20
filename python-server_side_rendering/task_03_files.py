@@ -1,16 +1,15 @@
+#!/usr/bin/python3
 from flask import Flask, render_template, request
 import csv
 import json
 
 app = Flask(__name__)
 
-# Function to read JSON data from file
 def read_json_file(filename):
     with open(filename, 'r') as file:
         data = json.load(file)
     return data
 
-# Function to read CSV data from file
 def read_csv_file(filename):
     data = []
     with open(filename, 'r') as file:
@@ -19,7 +18,6 @@ def read_csv_file(filename):
             data.append(row)
     return data
 
-# Route to handle displaying products
 @app.route('/products')
 def display_products():
     source = request.args.get('source')
