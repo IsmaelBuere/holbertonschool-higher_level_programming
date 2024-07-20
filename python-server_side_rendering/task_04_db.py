@@ -10,6 +10,7 @@ def read_json():
     try:
         with open('items.json') as file:
             data = json.load(file)
+            print(data)
             return data.get('items', [])
     except (FileNotFoundError, json.JSONDecodeError):
         return []
